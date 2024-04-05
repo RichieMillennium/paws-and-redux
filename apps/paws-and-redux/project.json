@@ -1,0 +1,9 @@
+{
+  "name": "paws-and-redux",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/paws-and-redux/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project paws-and-redux --web",
+  "targets": {}
+}

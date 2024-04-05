@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@paws-and-redux/config-tailwind-preset": [
+        "libs/config/tailwind-preset/src/index.js"
+      ],
+      "@paws-and-redux/paws-and-redux-core": [
+        "libs/paws-and-redux/core/src/index.ts"
+      ],
+      "@paws-and-redux/shared-state": ["libs/shared/state/src/index.ts"],
+      "@paws-and-redux/shared-ui": ["libs/shared/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
