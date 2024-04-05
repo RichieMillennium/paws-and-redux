@@ -1,4 +1,5 @@
 import { TPawsState } from '../store';
+import { NAMESPACE } from '../slices/ui';
 
 export const selectActiveView = (state: TPawsState) =>
-  state.ui.activeView;
+  state[NAMESPACE].activeView;

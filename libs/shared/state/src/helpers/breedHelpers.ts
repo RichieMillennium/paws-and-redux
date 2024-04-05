@@ -1,4 +1,4 @@
-import { IBreed } from '@paws-and-redux/shared-state';
+import { IBreed } from '../types';
 
 export const setBreedImages = (breeds: IBreed[], imageUrls: string[], breedName: string, parentBreed?: string): IBreed[] => {
   const breedIndex = breeds.findIndex(breed => breed.name === breedName && breed.parentBreed === parentBreed);
@@ -11,7 +11,7 @@ export const setBreedImages = (breeds: IBreed[], imageUrls: string[], breedName:
     {
       ...breed,
       imageUrls: [...imageUrls],
-      defaultImageUrl: imageUrls.length ? imageUrls[0] : undefined
+      galleryImageUrl: imageUrls.length ? imageUrls[0] : undefined
     },
     ...breeds.slice(breedIndex + 1),
   ];

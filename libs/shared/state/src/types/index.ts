@@ -1,6 +1,6 @@
 export interface IBreed {
   name: string;
-  defaultImageUrl?: string;
+  galleryImageUrl?: string;
   imageUrls?: string[];
   parentBreed?: string;
   subBreeds?: string[];

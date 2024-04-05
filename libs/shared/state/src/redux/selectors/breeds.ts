@@ -1,35 +1,17 @@
-import {createSelector } from '@reduxjs/toolkit';
 import { TPawsState } from '../store';
+import { NAMESPACE } from '../slices/breeds';
 
 export const selectAllBreeds = (state: TPawsState) =>
-  state.breeds.breeds;
+  state[NAMESPACE].breeds;
 
 export const selectBreedsCache = (state: TPawsState) =>
-  state.breeds.breedsCache;
+  state[NAMESPACE].breedsCache;
 
 export const selectSelectedBreed = (state: TPawsState) =>
-  state.breeds.selectedBreed;
+  state[NAMESPACE].selectedBreed;
 
 export const selectBreedsStatus = (state: TPawsState) =>
-  state.breeds.status;
+  state[NAMESPACE].status;
 
 export const selectBreedsErrorMessage = (state: TPawsState) =>
-  state.breeds.errorMessage;
-
-export const selectGallerySize = (state: TPawsState) =>
-  state.breeds.gallerySize;
-
-export const selectGalleryImageIndexes = (state: TPawsState) =>
-  state.breeds.galleryImageIndexes;
-
-export const selectGalleryBreeds = createSelector(
-  [selectAllBreeds, selectGallerySize, selectGalleryImageIndexes],
-  (allBreeds, gallerySize, imageIndexes) => {
-    return allBreeds
-      .filter((breed, index) => index < gallerySize)
-      .map(breed => ({
-        ...breed,
-        defaultImageUrl: breed.imageUrls?.[imageIndexes[`${breed.name}/${breed.parentBreed}`] || 0] || breed.defaultImageUrl,
-      }));
-  }
-);
+  state[NAMESPACE].errorMessage;

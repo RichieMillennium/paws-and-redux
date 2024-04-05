@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import { EStatus, IBreed, IBreedImageIndexChange, IBreedType } from '../../types';
-import { setBreedImages, updateBreedsCache, sortBreeds } from '../../helpers/breedHelpers';
+import { EStatus, IBreed, IBreedType } from '../../types';
+import { setBreedImages, sortBreeds } from '../../helpers/breedHelpers';
 
-const GALLERY_PAGE_SIZE = 12;
+export const NAMESPACE = 'breeds';
 
 export interface IState {
   status: EStatus,
@@ -11,8 +11,6 @@ export interface IState {
   selectedBreed: IBreed | null;
   errorMessage: string | null;
   searchTerm: string;
-  gallerySize: number;
-  galleryImageIndexes: Record<string, number>;
 }
 
 const initialState: IState = {
@@ -22,15 +20,13 @@ const initialState: IState = {
   selectedBreed: null,
   errorMessage: null,
   searchTerm: '',
-  gallerySize: 12,
-  galleryImageIndexes: {},
 };
 
 export const breedsSlice = createSlice({
-  name: 'breeds',
+  name: NAMESPACE,
   initialState,
   reducers: {
-    initBreeds(state: IState) {
+    initBreeds() {
       //
     },
     fetchAllBreedsStart(state: IState) {
@@ -47,7 +43,7 @@ export const breedsSlice = createSlice({
       state.status = EStatus.error;
       state.errorMessage = action.payload;
     },
-    fetchBreedImagesStart(state: IState) {
+    fetchBreedImagesStart() {
       //
     },
     searchBreeds(state: IState, action: PayloadAction<string>) {
@@ -65,10 +61,10 @@ export const breedsSlice = createSlice({
     createSubBreedsStart() {
       //
     },
-    queueSubBreedAdd(state: IState, action: PayloadAction<IBreed>) {
+    queueSubBreedAdd(_state: IState, _action: PayloadAction<IBreed>) {
       //
     },
-    queueBreedImageFetch(state: IState, _action: PayloadAction<IBreedType>) {
+    queueBreedImageFetch(_state: IState, _action: PayloadAction<IBreedType>) {
       //
     },
     breedImagesFetchSuccess(state: IState, action: PayloadAction<{ breedName: string; parentBreed?: string; imageUrls: string[] }>) {
@@ -81,9 +77,6 @@ export const breedsSlice = createSlice({
         breed.imageUrls = [];
       }
     },
-    fetchMoreGalleryImages(state: IState) {
-      state.gallerySize += GALLERY_PAGE_SIZE;
-    },
     updateBreedsCache(state: IState) {
       state.breedsCache = [...state.breeds];
     },
@@ -93,14 +86,6 @@ export const breedsSlice = createSlice({
     },
     unselectBreed(state: IState) {
       state.selectedBreed = null;
-    },
-    changeGalleryImageIndex(state: IState, action: PayloadAction<IBreedImageIndexChange>) {
-      const { breed, parentBreed, indexChange } = action.payload;
-      const index = `${breed}/${parentBreed}`;
-      state.galleryImageIndexes = {
-        ...state.galleryImageIndexes,
-        [index]: (state.galleryImageIndexes[index] || 0) + indexChange
-      };
     },
   },
 });

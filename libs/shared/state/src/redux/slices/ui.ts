@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { TToggleState } from '../../types';
 
+export const NAMESPACE = 'ui';
 
 export interface IState {
   activeView: TToggleState
@@ -11,7 +12,7 @@ const initialState: IState = {
 };
 
 export const uiSlice = createSlice({
-  name: 'ui',
+  name: NAMESPACE,
   initialState,
   reducers: {
     setView(state: IState, action: PayloadAction<TToggleState>) {

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  breedsState,
+  galleryState,
   EIndexChange,
   IBreed,
   selectGalleryImageIndexes,
@@ -21,7 +21,7 @@ export const GalleryCard: FC<IProps> = ({breed}) => {
 
   const handleClickPrevious = () => {
     dispatch(
-      breedsState.actions.changeGalleryImageIndex({
+      galleryState.actions.changeGalleryImageIndex({
         breed: breed.name,
         parentBreed: breed.parentBreed,
         indexChange: EIndexChange.previous
@@ -31,7 +31,7 @@ export const GalleryCard: FC<IProps> = ({breed}) => {
 
   const handleClickNext = () => {
     dispatch(
-      breedsState.actions.changeGalleryImageIndex({
+      galleryState.actions.changeGalleryImageIndex({
         breed: breed.name,
         parentBreed: breed.parentBreed,
         indexChange: EIndexChange.next
@@ -41,7 +41,7 @@ export const GalleryCard: FC<IProps> = ({breed}) => {
 
   return (
     <div className="w-1/5 my-4 mx-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <div className="w-full rounded-t-lg h-64 bg-cover bg-no-repeat bg-center flex flex-col items-center justify-between px-5 py-1" style={{ backgroundImage: `url(${breed.defaultImageUrl})`}}>
+      <div className="w-full rounded-t-lg h-64 bg-cover bg-no-repeat bg-center flex flex-col items-center justify-between px-5 py-1" style={{ backgroundImage: `url(${breed.galleryImageUrl})`}}>
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-secondary-100" style={{ textShadow: '2px 2px 1px black' }}>
           {breed.name}
         </h5>

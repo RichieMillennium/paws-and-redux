@@ -145,25 +145,6 @@ export const createColorVariants = (options: IOptions): TColorVariants => {
       transparent: 'bg-transparent',
     }
   }
-  if (options.background && options.weight === 500) {
-    response = {
-      white: 'bg-white',
-      gray: 'bg-gray-500',
-      blue: 'bg-blue-500',
-      teal: 'bg-teal-500',
-      green: 'bg-green-500',
-      yellow: 'bg-yellow-500',
-      orange: 'bg-orange-500',
-      red: 'bg-red-500',
-      pink: 'bg-pink-500',
-      indigo: 'bg-indigo-500',
-      purple: 'bg-purple-500',
-      primary: 'bg-primary-500',
-      secondary: 'bg-secondary-500',
-      neutral: 'bg-neutral-500',
-      transparent: 'bg-transparent',
-    }
-  }
   if (options.background && options.weight === 300) {
     response = {
       white: 'bg-white',
@@ -183,22 +164,41 @@ export const createColorVariants = (options: IOptions): TColorVariants => {
       transparent: 'bg-transparent',
     }
   }
-  if (options.background && options.weight === 200) {
+  if (options.background && options.weight === 500) {
     response = {
       white: 'bg-white',
-      gray: 'bg-gray-200',
-      blue: 'bg-blue-200',
-      teal: 'bg-teal-200',
-      green: 'bg-green-200',
-      yellow: 'bg-yellow-200',
-      orange: 'bg-orange-200',
-      red: 'bg-red-200',
-      pink: 'bg-pink-200',
-      indigo: 'bg-indigo-200',
-      purple: 'bg-purple-200',
-      primary: 'bg-primary-200',
-      secondary: 'bg-secondary-200',
-      neutral: 'bg-neutral-200',
+      gray: 'bg-gray-500',
+      blue: 'bg-blue-500',
+      teal: 'bg-teal-500',
+      green: 'bg-green-500',
+      yellow: 'bg-yellow-500',
+      orange: 'bg-orange-500',
+      red: 'bg-red-500',
+      pink: 'bg-pink-500',
+      indigo: 'bg-indigo-500',
+      purple: 'bg-purple-500',
+      primary: 'bg-primary-500',
+      secondary: 'bg-secondary-500',
+      neutral: 'bg-neutral-500',
+      transparent: 'bg-transparent',
+    }
+  }
+  if (options.background && options.weight === 800) {
+    response = {
+      white: 'bg-white',
+      gray: 'bg-gray-800',
+      blue: 'bg-blue-800',
+      teal: 'bg-teal-800',
+      green: 'bg-green-800',
+      yellow: 'bg-yellow-800',
+      orange: 'bg-orange-800',
+      red: 'bg-red-800',
+      pink: 'bg-pink-800',
+      indigo: 'bg-indigo-800',
+      purple: 'bg-purple-800',
+      primary: 'bg-primary-800',
+      secondary: 'bg-secondary-800',
+      neutral: 'bg-neutral-800',
       transparent: 'bg-transparent',
     }
   }
