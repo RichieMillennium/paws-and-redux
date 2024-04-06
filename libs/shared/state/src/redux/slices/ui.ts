@@ -4,11 +4,11 @@ import { TToggleState } from '../../types';
 export const NAMESPACE = 'ui';
 
 export interface IState {
-  activeView: TToggleState
+  activeView: TToggleState;
 }
 
 const initialState: IState = {
-  activeView: 'gallery'
+  activeView: 'gallery',
 };
 
 export const uiSlice = createSlice({
@@ -17,7 +17,7 @@ export const uiSlice = createSlice({
   reducers: {
     setView(state: IState, action: PayloadAction<TToggleState>) {
       state.activeView = action.payload;
-    }
+    },
   },
 });
 

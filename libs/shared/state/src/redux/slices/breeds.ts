@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { EStatus, IBreed, IBreedType } from '../../types';
 import { setBreedImages, sortBreeds } from '../../helpers/breedHelpers';
+import { breedMatchesSearchTerm } from '../../helpers/breedHelpers';
 
 export const NAMESPACE = 'breeds';
 
@@ -47,10 +48,9 @@ export const breedsSlice = createSlice({
       //
     },
     searchBreeds(state: IState, action: PayloadAction<string>) {
-      state.searchTerm = action.payload;
-      state.breeds = state.breedsCache.filter(breed => {
-        return breed.name === action.payload || breed.parentBreed === action.payload;
-      });
+      state.searchTerm = action.payload.toLowerCase();
+      state.breeds = state.breedsCache
+        .filter(breed => breedMatchesSearchTerm(breed, state.searchTerm));
     },
     addBreed(state: IState, action: PayloadAction<IBreed>) {
       state.breeds = [...state.breeds, action.payload];
@@ -70,6 +70,7 @@ export const breedsSlice = createSlice({
     breedImagesFetchSuccess(state: IState, action: PayloadAction<{ breedName: string; parentBreed?: string; imageUrls: string[] }>) {
       const { breedName, parentBreed, imageUrls } = action.payload;
       state.breeds = setBreedImages(state.breeds, imageUrls, breedName, parentBreed);
+      state.breedsCache = setBreedImages(state.breedsCache, imageUrls, breedName, parentBreed);
     },
     breedImagesFetchError(state: IState, action: PayloadAction<string>) {
       const breed = state.breeds.find(breed => breed.name === action.payload);

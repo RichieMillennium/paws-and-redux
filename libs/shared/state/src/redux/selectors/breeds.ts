@@ -15,3 +15,6 @@ export const selectBreedsStatus = (state: TPawsState) =>
 
 export const selectBreedsErrorMessage = (state: TPawsState) =>
   state[NAMESPACE].errorMessage;
+
+export const selectSearchTerm = (state: TPawsState) =>
+  state[NAMESPACE].searchTerm;

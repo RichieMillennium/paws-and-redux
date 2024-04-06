@@ -42,3 +42,11 @@ export const sortBreeds = (breeds: IBreed[]): IBreed[] => {
   });
   return breeds;
 }
+
+export const breedMatchesSearchTerm = (breed: IBreed, searchTerm: string) => {
+  if (!searchTerm) {
+    return true;
+  }
+  const term = searchTerm.toLowerCase();
+  return breed.name.includes(term) || breed.parentBreed?.includes(term);
+}

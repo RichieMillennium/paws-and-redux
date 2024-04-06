@@ -29,6 +29,9 @@ export const breedsGallerySlice = createSlice({
         [index]: (state.galleryImageIndexes[index] || 0) + indexChange
       };
     },
+    resetGallerySize(state: IState) {
+      state.gallerySize = GALLERY_PAGE_SIZE;
+    },
   }
 });
 

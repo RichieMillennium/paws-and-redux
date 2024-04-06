@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Header,
@@ -6,11 +7,12 @@ import {
   Toggle,
   TextInput,
 } from '@paws-and-redux/shared-ui';
-import { uiState, selectActiveView, TToggleState } from '@paws-and-redux/shared-state';
+import { uiState, breedsState, selectActiveView, selectSearchTerm, TToggleState } from '@paws-and-redux/shared-state';
 import HeaderTitle from './HeaderTitle';
 
 export const AppHeader = () => {
   const activeView = useSelector(selectActiveView);
+  const searchTerm: string = useSelector(selectSearchTerm);
   const dispatch = useDispatch();
 
   const handleGithub = () => {
@@ -19,6 +21,10 @@ export const AppHeader = () => {
 
   const handleToggle = (view: TToggleState) => () => {
     dispatch(uiState.actions.setView(view));
+  };
+
+  const handleChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(breedsState.actions.searchBreeds(event.target.value));
   };
 
   return (
@@ -35,9 +41,12 @@ export const AppHeader = () => {
       <HeaderGroup floatRight={true}>
         <HeaderItem>
           <TextInput
-                     title="Search" name="input1"
-                     placeholder="Type here"
-                     className="w-64 h-12 m-2"/>
+             title="Search" name="input1"
+             placeholder="Type here"
+             className="w-64 h-12 m-2"
+             value={searchTerm}
+             onChange={handleChangeSearch}
+          />
 
         </HeaderItem>
       </HeaderGroup>
