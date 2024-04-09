@@ -9,6 +9,7 @@ export interface IHeader extends Classy {
 /***
  * Tailwind Header
  * @param title - required string or element containing the application title
+ * @param className - optional string
  * @param children - one or more HeaderGroup items
  * @constructor
  */
@@ -18,7 +19,7 @@ export const Header: React.FunctionComponent<React.PropsWithChildren<IHeader>> =
   children
 }) => {
   return (
-    <nav className="bg-primary-100 shadow" role="navigation">
+    <nav className="bg-primary-100 shadow sticky top-0" role="navigation">
       <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
         <div className="mr-4 md:mr-8">
           <a

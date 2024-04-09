@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { selectGalleryBreeds, selectBreedsStatus, EStatus, galleryState } from '@paws-and-redux/shared-state';
-import GalleryCard from './GalleryCard';
-import ViewMoreButton from './ViewMoreButton';
+import GalleryCard from '../components/GalleryCard';
+import { ViewMoreButton } from '@paws-and-redux/shared-ui';
 
 export const GalleryView = () => {
   const breeds = useSelector(selectGalleryBreeds);

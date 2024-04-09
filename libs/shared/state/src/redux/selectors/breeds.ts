@@ -10,6 +10,9 @@ export const selectBreedsCache = (state: TPawsState) =>
 export const selectSelectedBreed = (state: TPawsState) =>
   state[NAMESPACE].selectedBreed;
 
+export const selectSelectedBreedImageUrls = (state: TPawsState) =>
+  state[NAMESPACE].selectedBreedImageUrls;
+
 export const selectBreedsStatus = (state: TPawsState) =>
   state[NAMESPACE].status;
 

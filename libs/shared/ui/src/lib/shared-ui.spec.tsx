@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import SharedUi from './shared-ui';
+import { Button } from './shared-ui';
 
-describe('SharedUi', () => {
-  it('should render successfully', () => {
-    const { baseElement } = render(<SharedUi />);
+describe('@paws-and-redux/shared-ui', () => {
+  it('Button should render successfully', () => {
+    const { baseElement } = render(<Button>Test Button</Button>);
     expect(baseElement).toBeTruthy();
   });
 });

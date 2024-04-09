@@ -6,6 +6,8 @@ interface IOptions {
   hoverText?: boolean;
   border?: boolean;
   background?: boolean;
+  tag?: boolean;
+  svg?: boolean;
   weight?: number;
   hoverWeight?: number;
 }
@@ -105,6 +107,44 @@ export const createColorVariants = (options: IOptions): TColorVariants => {
       secondary: 'border-secondary-500',
       neutral: 'border-neutral-500',
       transparent: 'border-transparent',
+    }
+  }
+  if (options.tag) {
+    return {
+      white: 'text-gray-700 bg-white hover:text-gray-200 hover:bg-gray-700',
+      gray: 'text-gray-700 bg-gray-200 hover:text-gray-200 hover:bg-gray-700',
+      blue: 'text-blue-700 bg-blue-200 hover:text-blue-200 hover:bg-blue-700',
+      teal: 'text-teal-700 bg-teal-200 hover:text-teal-200 hover:bg-teal-700',
+      green: 'text-green-700 bg-green-200 hover:text-green-200 hover:bg-green-700',
+      yellow: 'text-yellow-700 bg-yellow-200 hover:text-yellow-200 hover:bg-yellow-700',
+      orange: 'text-orange-700 bg-orange-200 hover:text-orange-200 hover:bg-orange-700',
+      red: 'text-red-700 bg-red-200 hover:text-red-200 hover:bg-red-700',
+      pink: 'text-pink-700 bg-pink-200 hover:text-pink-200 hover:bg-pink-700',
+      indigo: 'text-indigo-700 bg-indigo-200 hover:text-indigo-200 hover:bg-indigo-700',
+      purple: 'text-purple-700 bg-purple-200 hover:text-purple-200 hover:bg-purple-700',
+      primary: 'text-primary-700 bg-primary-200 hover:text-primary-200 hover:bg-primary-700',
+      secondary: 'text-secondary-700 bg-secondary-200 hover:text-secondary-200 hover:bg-secondary-700',
+      neutral: 'text-neutral-700 bg-neutral-200 hover:text-neutral-200 hover:bg-neutral-700',
+      transparent: 'bg-transparent',
+    }
+  }
+  if (options.svg) {
+    return {
+      white: 'stroke-current hover:stroke-gray-200 hover:fill-gray-200',
+      gray: 'stroke-current hover:stroke-gray-200 hover:fill-gray-200',
+      blue: 'stroke-current hover:stroke-blue-200 hover:fill-blue-200',
+      teal: 'stroke-current hover:stroke-teal-200 hover:fill-teal-200',
+      green: 'stroke-current hover:stroke-green-200 hover:fill-green-200',
+      yellow: 'stroke-current hover:stroke-yellow-200 hover:fill-yellow-200',
+      orange: 'stroke-current hover:stroke-orange-200 hover:fill-orange-200',
+      red: 'stroke-current hover:stroke-red-200 hover:fill-red-200',
+      pink: 'stroke-current hover:stroke-pink-200 hover:fill-pink-200',
+      indigo: 'stroke-current hover:stroke-indigo-200 hover:fill-indigo-200',
+      purple: 'stroke-current hover:stroke-purple-200 hover:fill-purple-200',
+      primary: 'stroke-current hover:stroke-primary-200 hover:fill-primary-200',
+      secondary: 'stroke-current hover:stroke-secondary-200 hover:fill-secondary-200',
+      neutral: 'stroke-current hover:stroke-neutral-200 hover:fill-neutral-200',
+      transparent: 'stroke-current',
     }
   }
   if (options.background && options.weight === 100) {

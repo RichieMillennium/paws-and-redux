@@ -1,7 +1,10 @@
 import { IBreed } from '../types';
 
+export const findBreedIndex = (breeds: IBreed[], breedName: string, parentBreed?: string): number =>
+  breeds.findIndex(breed => breed.name === breedName && breed.parentBreed === parentBreed);
+
 export const setBreedImages = (breeds: IBreed[], imageUrls: string[], breedName: string, parentBreed?: string): IBreed[] => {
-  const breedIndex = breeds.findIndex(breed => breed.name === breedName && breed.parentBreed === parentBreed);
+  const breedIndex = findBreedIndex(breeds, breedName, parentBreed);
   if (breedIndex  === -1) {
     return breeds;
   }

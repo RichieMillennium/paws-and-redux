@@ -1,0 +1,9 @@
+{
+  "name": "paws-and-redux-gallery",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/paws-and-redux/gallery/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project paws-and-redux-gallery --web",
+  "targets": {}
+}

@@ -1,9 +1,12 @@
+import { Color } from '@paws-and-redux/shared-ui';
+
 export interface IBreed {
   name: string;
   galleryImageUrl?: string;
   imageUrls?: string[];
   parentBreed?: string;
   subBreeds?: string[];
+  tagColor: Color;
 }
 
 export enum EStatus {

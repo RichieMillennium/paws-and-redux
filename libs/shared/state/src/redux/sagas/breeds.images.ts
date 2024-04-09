@@ -14,7 +14,7 @@ import {Channel, } from 'redux-saga';
 import {breedsState, galleryState} from '../slices';
 import {IBreed, IBreedType} from '../../types';
 import {fetchBreedImages, fetchSubBreedImages} from '../../api/breeds';
-import {selectBreedsCache, selectGallerySize, selectSearchTerm} from '../selectors';
+import {selectBreedsCache, selectGallerySize, selectSearchTerm, selectSelectedBreed } from '../selectors';
 import {breedMatchesSearchTerm} from '../../helpers/breedHelpers';
 
 export function* breedsNeedImagesLoadedWatcher() {
@@ -22,9 +22,22 @@ export function* breedsNeedImagesLoadedWatcher() {
     yield take([
       breedsState.actions.updateBreedsCache.type,
       breedsState.actions.searchBreeds.type,
+      breedsState.actions.setSelectedBreed.type,
     ]);
     const cache: IBreed[] = yield select(selectBreedsCache);
     const searchTerm: string = yield select(selectSearchTerm);
+    const selectedBreed: IBreed | null = yield select(selectSelectedBreed);
+
+    if (selectedBreed) {
+      if (selectedBreed.parentBreed) {
+        yield put(breedsState.actions.queueBreedImageFetch({
+          breedName: selectedBreed.parentBreed,
+          subBreed: selectedBreed.name
+        }));
+      } else {
+        yield put(breedsState.actions.queueBreedImageFetch({ breedName: selectedBreed.name }));
+      }
+    }
 
     const breedsMissingImages = cache.filter(breed => !breed.imageUrls && breedMatchesSearchTerm(breed, searchTerm));
     yield all(
@@ -46,7 +59,8 @@ export function* breedsNeedImagesLoadedWatcher() {
 function* imageQueueCanceller(imagesChannel: Channel<ReturnType<typeof breedsState.actions.queueBreedImageFetch>>): Generator {
   while (true) {
     yield take([
-      breedsState.actions.searchBreeds.type
+      breedsState.actions.searchBreeds.type,
+      breedsState.actions.setSelectedBreed.type,
     ]);
     yield flush(imagesChannel);
     yield put(galleryState.actions.resetGallerySize());

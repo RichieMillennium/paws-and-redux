@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build": "./node_modules/.bin/nx build paws-and-redux",
     "serve": "./node_modules/.bin/nx serve paws-and-redux",
     "test": "./node_modules/.bin/nx run-many -t test --all"
   },
@@ -56,7 +57,7 @@
     "jest-environment-jsdom": "^29.4.1",
     "jsdom": "~22.1.0",
     "nx": "18.2.1",
-    "postcss": "8.4.21",
+    "postcss": "^8.4.38",
     "prettier": "^2.6.2",
     "tailwindcss": "3.2.7",
     "ts-jest": "^29.1.0",

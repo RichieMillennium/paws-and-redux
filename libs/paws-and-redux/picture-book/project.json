@@ -1,0 +1,9 @@
+{
+  "name": "paws-and-redux-picture-book",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/paws-and-redux/picture-book/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project paws-and-redux-picture-book --web",
+  "targets": {}
+}

@@ -5,3 +5,7 @@ export * from './Header';
 export * from './HeaderGroup';
 export * from './HeaderItem';
 export * from './Toggle';
+export * from './LeftButtonIcon';
+export * from './RightButtonIcon';
+export * from './ViewMoreButton';
+export * from './TagButton';

@@ -24,6 +24,8 @@ export const AppHeader = () => {
   };
 
   const handleChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     dispatch(breedsState.actions.searchBreeds(event.target.value));
   };
 

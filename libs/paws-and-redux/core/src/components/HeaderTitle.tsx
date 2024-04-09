@@ -23,7 +23,7 @@ export const HeaderTitle: FC<IHeaderTitle> = ({ onGithubClick }) => {
         </svg>
       </Button>
       <h1 className="text-2xl font-extrabold">
-        Paws and Reflect - Redux Version
+        Paws and Reflect (Redux)
       </h1>
     </div>
   );

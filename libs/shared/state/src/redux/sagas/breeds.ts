@@ -9,6 +9,15 @@ import { IBreed, } from '../../types';
 import { fetchAllBreeds, } from '../../api/breeds';
 import { breedImagesQueueWatcher } from './breeds.images';
 import { subBreedsQueueWatcher } from './breeds.subBreeds';
+import { ALL_COLORS } from '@paws-and-redux/shared-ui';
+
+const TAG_COLORS = ALL_COLORS.filter(color => ![
+  'primary',
+  'secondary',
+  'neutral',
+  'transparent',
+  'white'
+].includes(color));
 
 function* initBreedsSaga() {
   yield fork(breedImagesQueueWatcher);
@@ -31,7 +40,12 @@ export function* sortBreedsWatcher() {
 function* fetchAllBreedsSaga() {
   const { results }: { results?: Record<string, string[]>, error?: string } = yield call(fetchAllBreeds);
   if (results) {
-    const breeds = Object.entries(results).map(([breed, subBreeds]) => ({ name: breed, subBreeds } as IBreed));
+    const breeds = Object.entries(results)
+      .map(([breed, subBreeds]) => {
+        const colorIndex = Math.ceil(Math.random() * 10);
+        const tagColor = TAG_COLORS[colorIndex];
+        return { name: breed, subBreeds, tagColor } as IBreed;
+      });
     yield put(
       breedsState.actions.fetchAllBreedsSuccess(breeds)
     );

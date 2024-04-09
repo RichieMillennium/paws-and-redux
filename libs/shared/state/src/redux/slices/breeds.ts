@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { EStatus, IBreed, IBreedType } from '../../types';
-import { setBreedImages, sortBreeds } from '../../helpers/breedHelpers';
+import { setBreedImages, sortBreeds, findBreedIndex } from '../../helpers/breedHelpers';
 import { breedMatchesSearchTerm } from '../../helpers/breedHelpers';
 
 export const NAMESPACE = 'breeds';
@@ -10,6 +10,7 @@ export interface IState {
   breedsCache: IBreed[];
   breeds: IBreed[];
   selectedBreed: IBreed | null;
+  selectedBreedImageUrls?: string[];
   errorMessage: string | null;
   searchTerm: string;
 }
@@ -36,6 +37,7 @@ export const breedsSlice = createSlice({
     fetchAllBreedsSuccess(state: IState, action: PayloadAction<Array<IBreed>>) {
       state.breeds = [...action.payload];
       state.selectedBreed = null;
+      state.selectedBreedImageUrls = [];
       state.status = EStatus.success;
       state.errorMessage = null;
       state.searchTerm = '';
@@ -71,6 +73,12 @@ export const breedsSlice = createSlice({
       const { breedName, parentBreed, imageUrls } = action.payload;
       state.breeds = setBreedImages(state.breeds, imageUrls, breedName, parentBreed);
       state.breedsCache = setBreedImages(state.breedsCache, imageUrls, breedName, parentBreed);
+      if (state.selectedBreed?.name === breedName && state.selectedBreed?.parentBreed === parentBreed) {
+        const selectedIndex = findBreedIndex(state.breeds, breedName, parentBreed);
+        if (selectedIndex !== -1) {
+          state.selectedBreedImageUrls = state.breeds[selectedIndex].imageUrls;
+        }
+      }
     },
     breedImagesFetchError(state: IState, action: PayloadAction<string>) {
       const breed = state.breeds.find(breed => breed.name === action.payload);
@@ -81,12 +89,13 @@ export const breedsSlice = createSlice({
     updateBreedsCache(state: IState) {
       state.breedsCache = [...state.breeds];
     },
-    setSelectedBreed(state: IState, action: PayloadAction<string>) {
-      const sel = state.breeds.find(item => item.name === action.payload);
-      state.selectedBreed = sel || null;
+    setSelectedBreed(state: IState, action: PayloadAction<IBreed | null>) {
+      state.selectedBreed = action.payload;
+      state.selectedBreedImageUrls = state.selectedBreed?.imageUrls;
     },
     unselectBreed(state: IState) {
       state.selectedBreed = null;
+      state.selectedBreedImageUrls = [];
     },
   },
 });

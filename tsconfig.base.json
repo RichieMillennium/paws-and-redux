@@ -21,6 +21,12 @@
       "@paws-and-redux/paws-and-redux-core": [
         "libs/paws-and-redux/core/src/index.ts"
       ],
+      "@paws-and-redux/paws-and-redux-gallery": [
+        "libs/paws-and-redux/gallery/src/index.ts"
+      ],
+      "@paws-and-redux/paws-and-redux-picture-book": [
+        "libs/paws-and-redux/picture-book/src/index.ts"
+      ],
       "@paws-and-redux/shared-state": ["libs/shared/state/src/index.ts"],
       "@paws-and-redux/shared-ui": ["libs/shared/ui/src/index.ts"]
     }
