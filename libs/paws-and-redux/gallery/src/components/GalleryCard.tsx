@@ -39,7 +39,7 @@ export const GalleryCard: FC<IProps> = ({breed}) => {
   };
 
   return (
-    <div className="w-1/5 my-4 mx-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-default">
+    <div data-test="gallery-card" className="w-1/5 my-4 mx-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-default">
       <div className="w-full rounded-t-lg h-64 bg-cover bg-no-repeat bg-center flex flex-col items-center justify-between px-5 py-1" style={{ backgroundImage: `url(${breed.galleryImageUrl})`}}>
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-secondary-100" style={{ textShadow: '2px 2px 1px black' }}>
           {breed.name}

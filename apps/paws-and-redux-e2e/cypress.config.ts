@@ -14,5 +14,7 @@ export default defineConfig({
       ciWebServerCommand: 'nx run paws-and-redux:serve-static',
     }),
     baseUrl: 'http://localhost:4200',
+    viewportWidth: 1400,
+    viewportHeight: 1400,
   },
 });

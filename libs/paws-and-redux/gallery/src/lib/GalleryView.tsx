@@ -16,7 +16,7 @@ export const GalleryView = () => {
     return (<div>Loading...</div>);
   }
   return (
-    <div className="flex flex-wrap">
+    <div data-text="gallery-view" className="flex flex-wrap">
       {breeds.map(breed => (
         <GalleryCard key={`${breed.name}-${breed.parentBreed}`} breed={breed} />
       ))}

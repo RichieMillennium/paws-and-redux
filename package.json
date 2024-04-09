@@ -5,7 +5,8 @@
   "scripts": {
     "build": "./node_modules/.bin/nx build paws-and-redux",
     "serve": "./node_modules/.bin/nx serve paws-and-redux",
-    "test": "./node_modules/.bin/nx run-many -t test --all"
+    "test": "./node_modules/.bin/nx run-many -t test --all",
+    "e2e": "./node_modules/.bin/nx run-many -t e2e --all"
   },
   "private": true,
   "dependencies": {
