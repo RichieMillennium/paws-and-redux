@@ -63,9 +63,9 @@ export const DogTags = () => {
     );
   };
   return (
-    <div data-test="dog-tags" className="m-auto flex w-128">
+    <div data-test="dog-tags" className="m-auto flex w-full md:w-128">
       <button className="text-gray-300 disabled:text-gray-200 hover:text-gray-500" disabled={leftDisabled} onClick={handlePrev}><LeftButtonIcon /></button>
-      <div className="xs:bg-red-100 sm:bg-orange-100 md:bg-gray-100 w-56 m-8 px-8 flex h-20 overflow-x-hidden overscroll-none bg-gray-100 border rounded-b-lg border-gray-300" onScroll={handleScroll}>
+      <div className="w-56 m-8 px-8 flex h-20 overflow-x-hidden overscroll-none bg-gray-100 border rounded-b-lg border-gray-300" onScroll={handleScroll}>
         {breeds.map((breed, index) => {
           return (
             <TagButton

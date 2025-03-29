@@ -39,7 +39,7 @@ export const GalleryCard: FC<IProps> = ({breed}) => {
   };
 
   return (
-    <div data-test="gallery-card" className="w-1/5 my-4 mx-8 dark:bg-gray-800 dark:border-gray-700 cursor-default">
+    <div data-test="gallery-card" className="w=1/2 md:w-1/5 my-4 mx-8 cursor-default">
       <div className="w-full border border-gray-200 rounded-lg h-64 bg-cover bg-no-repeat bg-center flex flex-col items-center justify-between px-5 py-1" style={{ backgroundImage: `url(${breed.galleryImageUrl})`}}>
       </div>
       <div className="p-2">
@@ -51,11 +51,11 @@ export const GalleryCard: FC<IProps> = ({breed}) => {
             )}
           </div>
           <button onClick={handleClickPrevious} disabled={imageIndex === 0}
-                  className="inline-flex items-center px-3 text-sm font-medium text-center text-gray-300 disabled:text-gray-200 rounded-lg hover:text-gray-500 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  className="inline-flex items-center px-3 text-sm font-medium text-center text-gray-300 disabled:text-gray-200 rounded-lg hover:text-gray-500 focus:outline-none">
             <LeftButtonIcon/>
           </button>
           <button onClick={handleClickNext} disabled={imageIndex === (breed.imageUrls?.length || 0) - 1}
-                  className="inline-flex items-center px-3 text-sm font-medium text-center text-gray-300 disabled:text-gray-200 rounded-lg hover:text-gray-500 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  className="inline-flex items-center px-3 text-sm font-medium text-center text-gray-300 disabled:text-gray-200 rounded-lg hover:text-gray-500 focus:outline-none">
             <RightButtonIcon/>
           </button>
         </div>
