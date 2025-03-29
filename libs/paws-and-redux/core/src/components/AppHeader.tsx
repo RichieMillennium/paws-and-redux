@@ -34,17 +34,17 @@ export const AppHeader = () => {
       title={<HeaderTitle onGithubClick={handleGithub} />}>
       <HeaderGroup className="basis-1/2 md:justify-center">
         <HeaderItem className="mx-4">
-          <Toggle data-test="gallery-toggle" active={activeView === 'gallery'} onClick={handleToggle('gallery')}>Gallery</Toggle>
+          <Toggle data-test="gallery-toggle" transparent active={activeView === 'gallery'} onClick={handleToggle('gallery')}>Gallery</Toggle>
         </HeaderItem>
         <HeaderItem className="mx-4">
-          <Toggle data-test="picture-book-toggle" active={activeView === 'picturebook'} onClick={handleToggle('picturebook')}>Picturebook</Toggle>
+          <Toggle data-test="picture-book-toggle" transparent active={activeView === 'picturebook'} onClick={handleToggle('picturebook')}>Picturebook</Toggle>
         </HeaderItem>
       </HeaderGroup>
       <HeaderGroup floatRight={true}>
         <HeaderItem>
           <TextInput
-             title="Search" name="input1"
-             placeholder="Type here"
+             name="input1"
+             placeholder="Search"
              className="w-64 h-12 m-2"
              value={searchTerm}
              onChange={handleChangeSearch}

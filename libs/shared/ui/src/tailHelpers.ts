@@ -111,21 +111,21 @@ export const createColorVariants = (options: IOptions): TColorVariants => {
   }
   if (options.tag) {
     return {
-      white: 'text-gray-700 bg-white hover:text-gray-200 hover:bg-gray-700',
-      gray: 'text-gray-700 bg-gray-200 hover:text-gray-200 hover:bg-gray-700',
-      blue: 'text-blue-700 bg-blue-200 hover:text-blue-200 hover:bg-blue-700',
-      teal: 'text-teal-700 bg-teal-200 hover:text-teal-200 hover:bg-teal-700',
-      green: 'text-green-700 bg-green-200 hover:text-green-200 hover:bg-green-700',
-      yellow: 'text-yellow-700 bg-yellow-200 hover:text-yellow-200 hover:bg-yellow-700',
-      orange: 'text-orange-700 bg-orange-200 hover:text-orange-200 hover:bg-orange-700',
-      red: 'text-red-700 bg-red-200 hover:text-red-200 hover:bg-red-700',
-      pink: 'text-pink-700 bg-pink-200 hover:text-pink-200 hover:bg-pink-700',
-      indigo: 'text-indigo-700 bg-indigo-200 hover:text-indigo-200 hover:bg-indigo-700',
-      purple: 'text-purple-700 bg-purple-200 hover:text-purple-200 hover:bg-purple-700',
-      primary: 'text-primary-700 bg-primary-200 hover:text-primary-200 hover:bg-primary-700',
-      secondary: 'text-secondary-700 bg-secondary-200 hover:text-secondary-200 hover:bg-secondary-700',
-      neutral: 'text-neutral-700 bg-neutral-200 hover:text-neutral-200 hover:bg-neutral-700',
-      transparent: 'bg-transparent',
+      white: 'text-gray-700 border-white hover:border-gray-700',
+      gray: 'text-gray-700 border-gray-200 hover:border-gray-700',
+      blue: 'text-blue-700 border-blue-200 hover:border-blue-700',
+      teal: 'text-teal-700 border-teal-200 hover:border-teal-700',
+      green: 'text-green-700 border-green-200 hover:border-green-700',
+      yellow: 'text-yellow-700 border-yellow-200 hover:border-yellow-700',
+      orange: 'text-orange-700 border-orange-200 hover:border-orange-700',
+      red: 'text-red-700 border-red-200 hover:border-red-700',
+      pink: 'text-pink-700 border-pink-200 hover:border-pink-700',
+      indigo: 'text-indigo-700 border-indigo-200 hover:border-indigo-700',
+      purple: 'text-purple-700 border-purple-200 hover:border-purple-700',
+      primary: 'text-primary-700 border-primary-200 hover:border-primary-700',
+      secondary: 'text-secondary-700 border-secondary-200 hover:border-secondary-700',
+      neutral: 'text-neutral-700 border-neutral-200 hover:border-neutral-700',
+      transparent: 'border-transparent',
     }
   }
   if (options.svg) {

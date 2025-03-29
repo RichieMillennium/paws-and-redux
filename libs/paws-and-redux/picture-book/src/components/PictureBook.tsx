@@ -22,7 +22,7 @@ const Container = forwardRef<HTMLDivElement, PropsWithChildren>( ({ children }, 
         gridTemplateColumns: `repeat(auto-fit, minmax(${COL_WIDTH}, 1fr))`,
         gridTemplateRows: `calc(${ROW_HEIGHT}px - 2rem)`
       }}
-      className="grid gap-8"
+      className="grid gap-8 h-1/2 overflow-auto"
     >
       {children}
     </div>

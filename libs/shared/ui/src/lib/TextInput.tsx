@@ -41,7 +41,7 @@ export const TextInput: React.FunctionComponent<ITextInput> = ({
         <input
           type="text"
           {...props}
-          className={`absolute left-0 w-full z-30 bg-transparent font-medium text-lg text-gray-800 border rounded ${borderColor[useColor]} appearance-none h-full px-3 pt-5 pb-1 focus:outline-none focus:shadow-outline`}
+          className={`absolute left-0 w-full z-30 bg-transparent font-medium text-lg text-gray-800 border-b ${borderColor[useColor]} appearance-none h-full px-3 pt-5 pb-1 focus:outline-none focus:shadow-outline`}
         />
       </label>
     </div>

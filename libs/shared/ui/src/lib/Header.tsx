@@ -19,7 +19,7 @@ export const Header: React.FunctionComponent<React.PropsWithChildren<IHeader>> =
   children
 }) => {
   return (
-    <nav className="bg-primary-100 shadow sticky top-0" role="navigation">
+    <nav role="navigation">
       <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
         <div className="mr-4 md:mr-8">
           <a

@@ -32,25 +32,19 @@ export const Toggle: React.FunctionComponent<IToggle> = ({
   ...props
 }) => {
   const useColor: Color = color || 'primary';
-  const bgColors = active ?
-    createColorVariants({ background: !className?.match(/text-[a-z]+-[0-9]+/), weight: 100, hoverWeight: 800 }) :
-    createColorVariants({ background: !className?.match(/text-[a-z]+-[0-9]+/), weight: 500, hoverWeight: 800 });
   const textColors = createColorVariants({ text: !className?.match(/text-[a-z]+-[0-9]+/) });
-  const borderColors = 'hover:border-white'; // active ?
-    // createColorVariants({ border: !className?.match(/text-[a-z]+-[0-9]+/) }) :
-    // createColorVariants({ border: !className?.match(/text-[a-z]+-[0-9]+/) });
-  const colorClasses = `${bgColors[useColor]} ${textColors[active ? useColor : 'white']} hover:text-white border-primary-500 ${borderColors}`;
+  const colorClasses = `${textColors[useColor]}`;
   const bgClasses = transparent ? ' bg-transparent' : ' bg-contrast';
   const needsHeight = !className?.match(/(^|\W)h-[0-9a0z]+/);
   const sizeClasses = slim
     ? `py-0 font-medium ${needsHeight ? 'h-full' : ''}`
     : `py-2 font-semibold ${needsHeight ? 'h-auto' : ''}`;
+  const lineClass = active ? 'underline' : '';
   return (
     <button
-      role="button"
       onClick={onClick}
       {...props}
-      className={`${className} ${colorClasses} ${bgClasses} active:translate-y-1 active:transition-all text-lg leading-relaxed ${sizeClasses} px-4 border rounded mr-2 focus:outline-none focus:shadow-outline`}
+      className={`${className} ${colorClasses} ${bgClasses} ${lineClass} text-lg font-thin leading-relaxed ${sizeClasses} px-4 mr-2 focus:outline-none`}
     />
   );
 };

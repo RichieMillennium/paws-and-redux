@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, } from 'react';
+import { PropsWithChildren, forwardRef } from 'react';
 import { createColorVariants } from '../tailHelpers'
 import { Color } from '../types';
 
@@ -7,13 +7,14 @@ interface IProps {
   onClick: () => void;
 }
 
-export const TagButton: FC<PropsWithChildren<IProps>> = ({ children, color, onClick }) => {
+export const TagButton = forwardRef<HTMLDivElement, PropsWithChildren<IProps>>((
+  { children, color, onClick }, ref
+) => {
   const useColor: Color = color || 'primary';
   const colorStyles = createColorVariants({ tag: true });
-  const svgColors = createColorVariants({ svg: true });
   return (
-    <div
-      className={`mr-4 my-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-4 py-1 ${colorStyles[useColor]} ${svgColors[useColor]} rounded-full cursor-pointer`}
+    <div ref={ref}
+      className={`m-4 text-xs inline-flex items-center font-thin leading-sm uppercase px-4 py-1 ${colorStyles[useColor]} stroke-current border border-1 rounded-full cursor-pointer`}
       onClick={onClick}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="h-8 mr-3">
@@ -25,6 +26,6 @@ export const TagButton: FC<PropsWithChildren<IProps>> = ({ children, color, onCl
       {children}
     </div>
   );
-};
+});
 
 export default TagButton;
